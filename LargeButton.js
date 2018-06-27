@@ -10,7 +10,9 @@ export default class LargeButton extends Component {
   render() {
     themes = {
       "primary": colours.primary,
-      "secondary": secondary
+      "secondary": colours.secondary,
+      "dark": colours.dark,
+      "info": colours.info      
     }
     const style = styles(this.props);
     return (
