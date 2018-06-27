@@ -1,0 +1,83 @@
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ * @flow
+ */
+
+import React, { Component } from 'react';
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  Picker,
+  Alert,
+  Button,
+  TouchableOpacity
+} from 'react-native';
+
+import LargeButton from './LargeButton';
+
+const instructions = Platform.select({
+  ios: 'Press Cmd+R to reload,\n' +
+    'Cmd+D or shake for dev menu',
+  android: 'Double tap R on your keyboard to reload,\n' +
+    'Shake or press menu button for dev menu\n' +
+    'Happy Coding'
+});
+
+type Props = {};
+export default class App extends Component<Props> {
+  constructor(props) {
+    super(props);
+    this.state = {language: 'java'};
+    //const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    //this.state = {
+     // dataSource: ds.cloneWithRows(['row 1', 'row 2']),
+    //};
+  }  
+  /*
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          Welcome to React Native!
+        </Text>
+        <Text style={styles.instructions}>
+          To get started, edit App.js
+        </Text>
+        <Text style={styles.instructions}>
+          {instructions}
+        </Text>
+      </View>
+    );
+  }
+  */
+  _onButtonPress() {
+    Alert.alert('You tapped the button!')
+  }
+
+  render() {
+    return (
+      <View>
+        <LargeButton value="Button Text" theme="secondary" />
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  button: {
+    alignItems: 'center',
+    backgroundColor: 'crimson',
+    padding: 20,
+    height: 70,
+    width: 'auto'
+  },
+  buttonText: {
+    fontSize: 20,
+    color: 'white',
+    fontWeight: 'bold'
+  }
+});
