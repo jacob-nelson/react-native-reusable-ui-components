@@ -14,7 +14,8 @@ export default class LargeButton extends Component {
       "dark": colours.dark,
       "info": colours.info,
       "danger": colours.danger,
-      "warning": colours.warning      
+      "warning": colours.warning,
+      "secondary": colours.secondary      
     }
     const style = styles(this.props);
     return (
@@ -33,15 +34,14 @@ export default class LargeButton extends Component {
 const styles = (props) => StyleSheet.create({
   button: StyleSheet.flatten([
     {
-      alignItems: 'center',
       padding: 25,
       height: 90,
-      backgroundColor: themes[props.theme]
-    },
-    props.outline && {
+      alignItems: 'center',
+      backgroundColor: themes[props.theme],
       borderStyle: 'solid',
-      borderWidth: 1,
-      borderColor: themes[props.theme],
+      borderWidth: 2,
+      borderColor: themes[props.theme],    },
+    props.outline && {
       backgroundColor: 'transparent'      
     },
     props.rounded && {

@@ -14,7 +14,8 @@ export default class MediumButton extends Component {
       "dark": colours.dark,
       "info": colours.info,
       "danger": colours.danger,
-      "warning": colours.warning
+      "warning": colours.warning,
+      "secondary": colours.secondary
     }
     const style = styles(this.props);
     return (
@@ -33,15 +34,15 @@ export default class MediumButton extends Component {
 const styles = (props) => StyleSheet.create({
   button: StyleSheet.flatten([
     {
-      alignItems: 'center',
       padding: 15,
       height: 60,
-      backgroundColor: themes[props.theme]
+      alignItems: 'center',
+      backgroundColor: themes[props.theme],
+      borderStyle: 'solid',
+      borderWidth: 2,
+      borderColor: themes[props.theme],      
     },
     props.outline && {
-      borderStyle: 'solid',
-      borderWidth: 1,
-      borderColor: themes[props.theme],
       backgroundColor: 'transparent'      
     },
     props.rounded && {
