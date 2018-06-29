@@ -37,11 +37,14 @@ const styles = (props) => StyleSheet.create({
       padding: 15,
       height: 60,
       alignItems: 'center',
-      backgroundColor: themes[props.theme],
+      backgroundColor: themes["primary"],
       borderStyle: 'solid',
       borderWidth: 2,
       borderColor: themes[props.theme],      
     },
+    props.theme && {
+      backgroundColor: themes[props.theme]      
+    },    
     props.outline && {
       backgroundColor: 'transparent'      
     },
