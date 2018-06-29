@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, View, Alert, Text, Button, TouchableOpacity } from 'react-native';
 import {colours} from "./styles/common";
 
-export default class LargeButton extends Component {
+export default class RNButton extends React.Component {
     constructor(props) {
         super(props)
     }
@@ -13,8 +13,7 @@ export default class LargeButton extends Component {
       "success": colours.success,
       "dark": colours.dark,
       "info": colours.info,
-      "danger": colours.danger,
-      "warning": colours.warning      
+      "danger": colours.danger     
     }
     const style = styles(this.props);
     return (
@@ -46,6 +45,22 @@ const styles = (props) => StyleSheet.create({
     },
     props.rounded && {
       borderRadius: 5
+    },
+    props.lg && {
+      padding: 25,
+      height: 90,
+    },
+    props.md && {
+      padding: 15,
+      height: 60,
+    },
+    props.sm && {
+      padding: 10,
+      height: 45,
+    },
+    props.xs && {
+      padding: 10,
+      height: 35,
     }
   ]),
   buttonText: StyleSheet.flatten([
@@ -57,8 +72,20 @@ const styles = (props) => StyleSheet.create({
     props.outline && {
       color: themes[props.theme]    
     },
+    props.lg && {
+        fontSize: 30,
+    },
+    props.md && {
+        fontSize: 20,
+    },
+    props.sm && {
+        fontSize: 15,
+    },
+    props.xs && {
+        fontSize: 10,
+    }
   ]),  
 });
 
 // skip this line if using Create React Native App
-AppRegistry.registerComponent('LargeButton', () => LargeButton);
+AppRegistry.registerComponent('RNButton', () => RNButton);

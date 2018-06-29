@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, View, Alert, Text, Button, TouchableOpacity } from 'react-native';
 import {colours} from "./styles/common";
 
-export default class LargeButton extends Component {
+export default class LargeButton extends React.Component {
     constructor(props) {
         super(props)
     }
@@ -13,8 +13,7 @@ export default class LargeButton extends Component {
       "success": colours.success,
       "dark": colours.dark,
       "info": colours.info,
-      "danger": colours.danger,
-      "warning": colours.warning      
+      "danger": colours.danger      
     }
     const style = styles(this.props);
     return (

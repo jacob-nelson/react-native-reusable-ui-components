@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, View, Alert, Text, Button, TouchableOpacity } from 'react-native';
 import {colours} from "./styles/common";
 
-export default class LargeButton extends Component {
+export default class SmallButton extends React.Component {
     constructor(props) {
         super(props)
     }
@@ -13,8 +13,7 @@ export default class LargeButton extends Component {
       "success": colours.success,
       "dark": colours.dark,
       "info": colours.info,
-      "danger": colours.danger,
-      "warning": colours.warning      
+      "danger": colours.danger
     }
     const style = styles(this.props);
     return (
@@ -34,8 +33,8 @@ const styles = (props) => StyleSheet.create({
   button: StyleSheet.flatten([
     {
       alignItems: 'center',
-      padding: 25,
-      height: 90,
+      padding: 10,
+      height: 45,
       backgroundColor: themes[props.theme]
     },
     props.outline && {
@@ -50,7 +49,7 @@ const styles = (props) => StyleSheet.create({
   ]),
   buttonText: StyleSheet.flatten([
 {
-    fontSize: 30,
+    fontSize: 15,
     fontWeight: 'bold',
     color: 'white'
   },    
@@ -61,4 +60,4 @@ const styles = (props) => StyleSheet.create({
 });
 
 // skip this line if using Create React Native App
-AppRegistry.registerComponent('LargeButton', () => LargeButton);
+AppRegistry.registerComponent('SmallButton', () => SmallButton);

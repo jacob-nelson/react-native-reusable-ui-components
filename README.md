@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Welcome to React Native Reusable UI Components
 
 You can use the [editor on GitHub](https://github.com/jacob-nelson/react-native-reusable-ui-components/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
