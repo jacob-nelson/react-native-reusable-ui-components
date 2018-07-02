@@ -6,7 +6,11 @@ export default class LargeButton extends Component {
     constructor(props) {
         super(props)
     }
-     
+
+  _disabledButtonPressed(){
+
+  }
+
   render() {
     themes = {
       "primary": colours.primary,
@@ -17,12 +21,13 @@ export default class LargeButton extends Component {
       "warning": colours.warning,
       "secondary": colours.secondary      
     }
+    buttonTheme = this.props.theme ? themes[this.props.theme] : themes['primary'];
     const style = styles(this.props);
     return (
       <View style={{alignSelf: 'flex-start'}}>
-        <TouchableOpacity
+        <TouchableOpacity activeOpacity={0.8} 
         style={style.button}
-        onPress={this.props.onPress}
+        onPress={this.props.disabled ? this._disabledButtonPressed : this.props.onPress}
         >
           <Text style={style.buttonText}>{this.props.value}</Text>
         </TouchableOpacity>
@@ -37,13 +42,17 @@ const styles = (props) => StyleSheet.create({
       padding: 25,
       height: 90,
       alignItems: 'center',
-      backgroundColor: themes['primary'],
+      backgroundColor: buttonTheme,
       borderStyle: 'solid',
       borderWidth: 2,
-      borderColor: themes[props.theme],    
+      borderColor: buttonTheme   
     },
     props.theme && {
-      backgroundColor: themes[props.theme]      
+      backgroundColor: buttonTheme,
+      borderColor: buttonTheme    
+    },
+    props.disabled && {
+      opacity: 0.8,
     },
     props.outline && {
       backgroundColor: 'transparent'      
