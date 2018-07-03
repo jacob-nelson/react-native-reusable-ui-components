@@ -6,6 +6,10 @@ export default class RNButton extends Component {
     constructor(props) {
         super(props)
     }
+
+  _disabledButtonPressed(){
+
+  }    
      
   render() {
     themes = {
@@ -17,12 +21,13 @@ export default class RNButton extends Component {
       "warning": colours.warning,
       "secondary": colours.secondary   
     }
+    buttonTheme = this.props.theme ? themes[this.props.theme] : themes['primary'];
     const style = styles(this.props);
     return (
-      <View style={{alignSelf: 'flex-start'}}>
-        <TouchableOpacity
+      <View style={style.container}>
+        <TouchableOpacity activeOpacity={0.6}
         style={style.button}
-        onPress={this.props.onPress}
+        onPress={this.props.disabled ? this._disabledButtonPressed : this.props.onPress}
         >
           <Text style={style.buttonText}>{this.props.value}</Text>
         </TouchableOpacity>
@@ -32,19 +37,27 @@ export default class RNButton extends Component {
 }
 
 const styles = (props) => StyleSheet.create({
+  container: StyleSheet.flatten([
+    {
+      alignSelf: 'flex-start'
+    },
+    props.block && {
+      alignSelf: 'stretch'
+     },    
+  ]),
   button: StyleSheet.flatten([
     {
       padding: 25,
       height: 90,
       alignItems: 'center',
-      backgroundColor: themes['primary'],
+      backgroundColor: buttonTheme,
       borderStyle: 'solid',
       borderWidth: 2,
-      borderColor: themes[props.theme],
+      borderColor: buttonTheme,
     },
-    props.theme && {
-      backgroundColor: themes[props.theme]      
-    },
+    props.disabled && {
+      opacity: 0.6,
+     },
     props.outline && {
       backgroundColor: 'transparent'      
     },
@@ -75,7 +88,7 @@ const styles = (props) => StyleSheet.create({
     color: 'white'
   },    
     props.outline && {
-      color: themes[props.theme]    
+      color: buttonTheme    
     },
     props.lg && {
         fontSize: 30,
